@@ -22,7 +22,7 @@ const GameGrid = ({ selectedGenre }: Props) => {
       >
         {isLoading
           ? skeletons.map((skeleton) => (
-              <GameCardContainer>
+              <GameCardContainer key={skeleton}>
                 <GameCardSkeleton></GameCardSkeleton>
               </GameCardContainer>
             ))
