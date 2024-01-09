@@ -9,13 +9,11 @@ interface Props {
 
 const NavBar = ({ setSearchValue }: Props) => {
   return (
-    <>
-      <HStack justifyContent="space-between" padding="10px">
-        <Image src={LOGO} boxSize="60px"></Image>
-        <SearchInput setSearchValue={setSearchValue}></SearchInput>
-        <ColorModeSwitch></ColorModeSwitch>
-      </HStack>
-    </>
+    <HStack justifyContent="space-between" padding="10px">
+      <Image src={LOGO} boxSize="60px"></Image>
+      <SearchInput setSearchValue={setSearchValue}></SearchInput>
+      <ColorModeSwitch></ColorModeSwitch>
+    </HStack>
   );
 };
 
