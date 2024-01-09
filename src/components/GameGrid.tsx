@@ -3,9 +3,6 @@ import useGame, { GameQuery } from "../hooks/useGame";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/usePlatform";
-import { SortOrder } from "./SortSelector";
 
 interface Props {
   gameQuery: GameQuery;

@@ -3,21 +3,11 @@ import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenresList from "./components/GenresList";
 import { useState } from "react";
-import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import { Platform } from "./hooks/usePlatform";
-import SortSelector, { SortOrder } from "./components/SortSelector";
+import SortSelector from "./components/SortSelector";
 import { GameQuery } from "./hooks/useGame";
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
-  const [selectedSortOrder, setSelectedSortOrder] = useState<SortOrder | null>(
-    null
-  );
-  const [searchValue, setSearchValue] = useState<string>("");
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
     <>
