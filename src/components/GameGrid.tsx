@@ -11,17 +11,20 @@ interface Props {
   selectedGenre: Genre | null;
   selectedPlatform: Platform | null;
   selectedSortOrder: SortOrder | null;
+  searchValue: string;
 }
 
 const GameGrid = ({
   selectedGenre,
   selectedPlatform,
   selectedSortOrder,
+  searchValue,
 }: Props) => {
   const { data, error, isLoading } = useGame(
     selectedGenre,
     selectedPlatform,
-    selectedSortOrder
+    selectedSortOrder,
+    searchValue
   );
   const skeletons = [0, 1, 2, 3, 4, 5];
   return (

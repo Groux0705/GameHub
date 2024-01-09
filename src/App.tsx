@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePlatform";
 import SortSelector, { SortOrder } from "./components/SortSelector";
+
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
@@ -15,6 +16,8 @@ function App() {
   const [selectedSortOrder, setSelectedSortOrder] = useState<SortOrder | null>(
     null
   );
+  const [searchValue, setSearchValue] = useState<string>("");
+
   return (
     <>
       <Grid
@@ -28,7 +31,7 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <NavBar></NavBar>
+          <NavBar setSearchValue={(value) => setSearchValue(value)}></NavBar>
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
@@ -55,6 +58,7 @@ function App() {
             selectedGenre={selectedGenre}
             selectedPlatform={selectedPlatform}
             selectedSortOrder={selectedSortOrder}
+            searchValue={searchValue}
           ></GameGrid>
         </GridItem>
       </Grid>

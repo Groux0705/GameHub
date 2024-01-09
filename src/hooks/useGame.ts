@@ -14,7 +14,8 @@ export interface Game {
 const useGame = (
   selectedGenre: Genre | null,
   selectedPlatform: Platform | null,
-  selectedSortOrder: SortOrder | null
+  selectedSortOrder: SortOrder | null,
+  searchValue: string
 ) =>
   useData<Game>(
     "games",
@@ -23,9 +24,15 @@ const useGame = (
         genres: selectedGenre?.id,
         platforms: selectedPlatform?.id,
         ordering: selectedSortOrder?.value,
+        search: searchValue,
       },
     },
-    [selectedGenre?.id, selectedPlatform?.id, selectedSortOrder?.value]
+    [
+      selectedGenre?.id,
+      selectedPlatform?.id,
+      selectedSortOrder?.value,
+      searchValue,
+    ]
   );
 
 export default useGame;
