@@ -17,7 +17,6 @@ const useData = <T>(
   const [isLoading, setLoading] = useState(false);
   useEffect(
     () => {
-      console.log(requestConfig, dependencies);
       const controller = new AbortController();
       setLoading(true);
       apiClient
@@ -30,7 +29,6 @@ const useData = <T>(
           setLoading(false);
         })
         .catch((error) => {
-          console.log(error);
           setLoading(false);
           if (error instanceof CanceledError) return;
           setError(error.message);
