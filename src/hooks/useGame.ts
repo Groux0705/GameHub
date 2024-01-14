@@ -1,6 +1,6 @@
 import { SortOrder } from "../components/SortSelector";
 import useData from "./useData";
-import { Genre } from "./useGenres";
+import { Genre } from "../services/generService";
 import { Platform } from "./usePlatform";
 
 export interface Game {

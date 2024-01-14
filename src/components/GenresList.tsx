@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
-import { Genre } from "../hooks/useGenres";
+import { Genre } from "../services/generService";
 interface Props {
   selectedGenre: Genre | null;
   onSelectGenre: (genre: Genre) => void;
@@ -24,7 +24,7 @@ const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
         Genre
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY={1}>
             <HStack>
               <Image
