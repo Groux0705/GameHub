@@ -1,5 +1,5 @@
 import { SortOrder } from "../components/SortSelector";
-import { Platform } from "./usePlatform";
+import { Platform } from "./usePlatforms";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import ApiClient, { FetchResult } from "../services/api-client";
 import { Genre } from "./useGenres";
