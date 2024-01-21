@@ -10,10 +10,10 @@ import {
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 interface Props {
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
   onSelectGenre: (genre: Genre) => void;
 }
-const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenresList = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, error, isLoading } = useGenres();
   if (error) return null;
   if (isLoading) return <Spinner></Spinner>;
@@ -34,7 +34,7 @@ const GenresList = ({ onSelectGenre, selectedGenre }: Props) => {
               ></Image>
               <Button
                 fontSize="large"
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : "nomal"}
+                fontWeight={selectedGenreId === genre.id ? "bold" : "nomal"}
                 variant="link"
                 marginLeft={1}
                 whiteSpace="normal"

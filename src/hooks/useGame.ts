@@ -13,8 +13,8 @@ export interface Game {
 }
 
 export interface GameQuery {
-  genres: Genre | null;
-  platforms: Platform | null;
+  genreId?: number;
+  platformId?: number;
   ordering: SortOrder | null;
   search: string;
 }
@@ -27,8 +27,8 @@ const useGame = (gameQuery: GameQuery) =>
     queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
         params: {
-          genres: gameQuery.genres?.id,
-          parent_platforms: gameQuery.platforms?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.ordering?.value,
           search: gameQuery.search,
           page: pageParam,
