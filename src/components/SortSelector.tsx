@@ -1,17 +1,16 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronBarDown } from "react-icons/bs";
+import useGameQueryStore from "../store";
 
 export interface SortOrder {
   value: string;
   label: string;
 }
 
-interface Props {
-  selectedSortOrder: SortOrder | null;
-  onSelectedSortOrder: (sortOrder: SortOrder) => void;
-}
+const SortSelector = () => {
+  const ordering = useGameQueryStore((s) => s.gameQuery.ordering);
+  const setOrderText = useGameQueryStore((s) => s.setOrderText);
 
-const SortSelector = ({ selectedSortOrder, onSelectedSortOrder }: Props) => {
   // 前面加一个-是用于反转排序的
   const sortOrderList: SortOrder[] = [
     { value: "", label: "Relevance" },
@@ -25,12 +24,12 @@ const SortSelector = ({ selectedSortOrder, onSelectedSortOrder }: Props) => {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronBarDown />}>
-        Order By: {selectedSortOrder?.label || "Relevence"}
+        Order By: {ordering || "Relevence"}
       </MenuButton>
       <MenuList>
         {sortOrderList.map((sortOrder) => (
           <MenuItem
-            onClick={() => onSelectedSortOrder(sortOrder)}
+            onClick={() => setOrderText(sortOrder.value)}
             key={sortOrder.value}
           >
             {sortOrder.label}
