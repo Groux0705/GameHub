@@ -3,12 +3,7 @@ import genres from "../data/genres";
 import { CACHE_KEY_GENRES } from "../constant";
 import ApiClient, { FetchResult } from "../services/api-client";
 import ms from "ms";
-
-export interface Genre {
-  id: number;
-  name: string;
-  image_background: string;
-}
+import { Genre } from "../entity/Genre";
 
 const apiClient = new ApiClient<Genre>("/genres");
 
