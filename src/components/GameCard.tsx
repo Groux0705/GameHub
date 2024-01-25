@@ -1,5 +1,5 @@
 import { Card, CardBody, HStack, Heading, Image } from "@chakra-ui/react";
-import { Game } from "../entity/Game";
+import Game from "../entity/Game";
 import GamePlatformList from "./GamePlatformList";
 import CriticScore from "./CriticScore";
 import { useNavigate } from "react-router-dom";
