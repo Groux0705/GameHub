@@ -6,7 +6,7 @@ export default interface Game {
   id: number;
   name: string;
   slug: string;
-  description: string;
+  description_raw: string;
   genres: Genre[];
   publishers: Publisher[];
   background_image: string;
