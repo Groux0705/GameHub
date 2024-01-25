@@ -12,8 +12,11 @@ const SearchInput = () => {
     <form
       onSubmit={(evnet) => {
         evnet?.preventDefault();
-        navigate("/");
-        if (inputRef.current) setSearchText(inputRef.current?.value);
+        if (inputRef.current) {
+          navigate("/");
+          setSearchText(inputRef.current?.value);
+          inputRef.current.value = "";
+        }
       }}
     >
       <InputGroup>
